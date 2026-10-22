@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="dark" data-title-ro="Relu Percan - Dezvoltator &amp; Proiecte Open Source" data-title-en="Relu Percan - Developer &amp; Open Source Projects">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relu Percan - Dezvoltator &amp; Proiecte Open Source</title>
+  <meta name="description" content="Portalul oficial al proiectelor open-source dezvoltate de Relu Percan: fossil-scm-mcp, AllCharsAHK și utilitare Windows.">
+    <link rel="icon" type="image/svg+xml" href="assets/img/rp_avatar_2_luxury_gold.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('relupercan_theme') || localStorage.getItem('fossilsolo_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Bara Fixă de Control -->
+  <header class="top-control-bar">
+    <a href="index.html" class="bar-brand">
+      <img src="assets/img/rp_avatar_2_luxury_gold.svg" alt="Logo Relu Percan" class="bar-brand-avatar" width="30" height="30">
+      <span>Relu Percan</span>
+    </a>
+    
+    <div class="bar-actions">
+      <nav class="nav-links">
+        <a href="#proiecte" class="nav-link" data-i18n-ro="Proiecte" data-i18n-en="Projects" data-href-ro="#proiecte" data-href-en="#projects">Proiecte</a>
+        <a href="#despre" class="nav-link" data-i18n-ro="Despre" data-i18n-en="About" data-href-ro="#despre" data-href-en="#about">Despre</a>
+        <a href="https://github.com/ReluPercan" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub ↗</a>
+      </nav>
+      
+      <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-btn active" id="btn-lang-ro" title="Limba Română">🇷🇴 RO</button>
+        <button type="button" class="lang-btn" id="btn-lang-en" title="English Language">🇬🇧 EN</button>
+      </div>
+      
+      <button id="theme-toggle-btn" class="theme-btn" aria-label="Comută tema (Dark / Light)" title="Comută tema (Dark / Light)" data-title-ro="Comută tema (Dark / Light)" data-title-en="Toggle theme (Dark / Light)">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Container Principal -->
+  <main class="page-container">
+
+    <!-- ==================== SECȚIUNEA ÎN LIMBA ROMÂNĂ ==================== -->
+    <article id="lang-section-ro" class="lang-content active" lang="ro">
+      
+      <!-- Hero -->
+      <section class="hero-box">
+        <div class="hero-top">
+          <img src="assets/img/rp_avatar_2_luxury_gold.svg" alt="Avatar Relu Percan" class="hero-avatar" width="64" height="64">
+          <div class="hero-title-group">
+            <h1>Relu Percan</h1>
+            <div class="hero-tagline">Sisteme Windows • AutoHotkey • Fossil SCM • Unelte Python &amp; MCP</div>
+          </div>
+        </div>
+        
+        <p class="hero-desc">
+          Dezvoltator orientat spre eficiență, unelte native de sistem, simplitate arhitecturală (KISS) și autonomie software. 
+          Creez utilitare open-source, rapide și fiabile, proiectate pentru a rezolva probleme concrete din fluxul zilnic de lucru.
+        </p>
+
+        <div class="warning">
+          <div class="title">⚠️ Notă:</div>
+          <p>✨ Proiecte <strong>100% AI‑powered 🪄</strong> — concept, analiză, cod, testare, documentație — cu <strong>omul</strong> 👨‍💻 în buclă ca <strong>big boss</strong> 👨‍💼 pentru <strong>control</strong>, <strong>fine‑tuning</strong> și <strong>decizii</strong> 🤔😉🤫.</p>
+        </div>
+      </section>
+
+      <!-- Grila de Proiecte -->
+      <section id="proiecte">
+        <h2>📦 Proiecte Open Source</h2>
+        <p>Prezentare succintă a proiectelor principale. Documentația completă și codul sursă sunt disponibile în depozitele dedicate.</p>
+
+        <div class="projects-grid">
+          
+          <!-- Card FossilSoloMCP -->
+          <div class="project-card">
+            <div>
+              <div class="card-header">
+                <h3 class="card-title">fossil-scm-mcp</h3>
+                <span class="badge badge-primary">Python</span>
+              </div>
+              <p class="card-summary">
+                Server <strong>Model Context Protocol (MCP)</strong> autonom și headless pentru sistemul de control al versiunilor Fossil SCM. 
+                Pune la dispoziția asistenților AI (Claude Desktop, Antigravity, Cursor, ...) <strong>unelte specializate</strong> cu gestionare dinamică a directorului curent de lucru (<code>cwd</code>).
+              </p>
+              <div class="card-tags">
+                <span class="badge">PyPI</span>
+                <span class="badge">MCP Server</span>
+                <span class="badge">Fossil SCM</span>
+                <span class="badge">AI Agent Tools</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="proiecte/fossil-scm-mcp/index.html" class="btn btn-primary">Vezi Proiectul →</a>
+              <a href="https://pypi.org/project/fossil-scm-mcp/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">PyPI ↗</a>
+              <a href="https://github.com/ReluPercan/FossilSoloMCP" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub ↗</a>
+            </div>
+          </div>
+
+          <!-- Card AllCharsAHK -->
+          <div class="project-card">
+            <div>
+              <div class="card-header">
+                <h3 class="card-title">AllCharsAHK</h3>
+                <span class="badge badge-primary">AutoHotkey v2</span>
+              </div>
+              <p class="card-summary">
+                Motor universal de tastare pentru Windows inspirat de tasta clasică <em>Compose</em> și utilitarul AllChars. 
+                Permite introducerea rapidă a diacriticelor (ex: <strong>ă, î, ș, ț, â</strong>), a simbolurilor tipografice și a caracterelor Unicode direct din tastatură, fără schimbarea layout-ului și fără conflicte de taste.
+              </p>
+              <div class="card-tags">
+                <span class="badge">AutoHotkey v2</span>
+                <span class="badge">Windows 11</span>
+                <span class="badge">Unicode</span>
+                <span class="badge">Productivitate</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="proiecte/allchars-ahk/index.html" class="btn btn-primary">Vezi Proiectul →</a>
+              <a href="https://github.com/ReluPercan/AllCharsAHK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub ↗</a>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- Despre & Principii -->
+      <section id="despre">
+        <h2>🎯 Principii &amp; Mod de Lucru</h2>
+        <ul>
+          <li><strong>Autonomie și Zero Bloat:</strong> Aplicații ușoare, portabile, open-source, fără dependințe inutile și fără framework-uri greoaie de runtime.</li>
+          <li><strong>Fossil SCM pentru Versiune:</strong> Depozite compacte într-un singur fișier SQLite, oferind control al versiunilor durabil, sigur și ușor de salvat/replicat.</li>
+          <li><strong>Productivitate Windows:</strong> Integrare nativă cu sistemul de operare pentru automatizarea sarcinilor și eliminarea fricțiunilor zilnice.</li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan. Proiecte și cod open-source lansate sub licență <a href="license.html" target="_blank">MIT</a>.</div>
+        <div>
+          <a href="https://github.com/ReluPercan" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+          <a href="https://pypi.org/user/ReluPercan/" target="_blank" rel="noopener noreferrer">PyPI</a>
+        </div>
+      </footer>
+
+    </article>
+
+    <!-- ==================== SECȚIUNEA ÎN LIMBA ENGLEZĂ ==================== -->
+    <article id="lang-section-en" class="lang-content" lang="en">
+      
+      <!-- Hero -->
+      <section class="hero-box">
+        <div class="hero-top">
+          <img src="assets/img/rp_avatar_2_luxury_gold.svg" alt="Avatar Relu Percan" class="hero-avatar" width="64" height="64">
+          <div class="hero-title-group">
+            <h1>Relu Percan</h1>
+            <div class="hero-tagline">Windows Systems • AutoHotkey • Fossil SCM • Python &amp; MCP Tools</div>
+          </div>
+        </div>
+        
+        <p class="hero-desc">
+          Software developer focused on efficiency, native system utilities, architectural simplicity (KISS), and software autonomy. 
+          Building lightweight, fast, and dependable open-source tools designed to solve real daily workflow challenges.
+        </p>
+
+        <div class="warning">
+          <div class="title">⚠️ Note:</div>
+          <p>✨ <strong>100% AI‑powered projects 🪄</strong> — concept, analysis, code, testing, documentation — with the <strong>human</strong> 👨‍💻 in the loop as the <strong>big boss</strong> 👨‍💼 for <strong>control</strong>, <strong>fine‑tuning</strong>, and <strong>decisions</strong> 🤔😉🤫.</p>
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section id="projects">
+        <h2>📦 Open Source Projects</h2>
+        <p>Short summaries of main projects. Full documentation and source code are available in their respective repositories.</p>
+
+        <div class="projects-grid">
+          
+          <!-- Card FossilSoloMCP -->
+          <div class="project-card">
+            <div>
+              <div class="card-header">
+                <h3 class="card-title">fossil-scm-mcp</h3>
+                <span class="badge badge-primary">Python</span>
+              </div>
+              <p class="card-summary">
+                Autonomous and headless <strong>Model Context Protocol (MCP)</strong> server for Fossil SCM. 
+                Provides AI coding assistants (Claude Desktop, Antigravity, Cursor, ...) with <strong>specialized tools</strong> and dynamic working directory control (<code>cwd</code>).
+              </p>
+              <div class="card-tags">
+                <span class="badge">PyPI</span>
+                <span class="badge">MCP Server</span>
+                <span class="badge">Fossil SCM</span>
+                <span class="badge">AI Agent Tools</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="proiecte/fossil-scm-mcp/index.html" class="btn btn-primary">View Project →</a>
+              <a href="https://pypi.org/project/fossil-scm-mcp/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">PyPI ↗</a>
+              <a href="https://github.com/ReluPercan/FossilSoloMCP" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub ↗</a>
+            </div>
+          </div>
+
+          <!-- Card AllCharsAHK -->
+          <div class="project-card">
+            <div>
+              <div class="card-header">
+                <h3 class="card-title">AllCharsAHK</h3>
+                <span class="badge badge-primary">AutoHotkey v2</span>
+              </div>
+              <p class="card-summary">
+                Universal typing engine for Windows inspired by the classic <em>Compose</em> key concept and the classic AllChars utility. 
+                Type accented characters (e.g., <strong>ă, î, ș, ț, â</strong>), typographic symbols, and Unicode characters intuitively without changing keyboard layouts or conflicting with system shortcuts.
+              </p>
+              <div class="card-tags">
+                <span class="badge">AutoHotkey v2</span>
+                <span class="badge">Windows 11</span>
+                <span class="badge">Unicode</span>
+                <span class="badge">Productivity</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="proiecte/allchars-ahk/index.html" class="btn btn-primary">View Project →</a>
+              <a href="https://github.com/ReluPercan/AllCharsAHK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub ↗</a>
+            </div>
+          </div>
+
+
+        </div>
+      </section>
+
+      <!-- About & Principles -->
+      <section id="about">
+        <h2>🎯 Principles &amp; Workflow</h2>
+        <ul>
+          <li><strong>Autonomy and Zero Bloat:</strong> Lightweight, portable, open-source applications with no unnecessary dependencies or heavyweight runtimes.</li>
+          <li><strong>Fossil SCM for Version Control:</strong> Compact, single-file SQLite repositories providing durable, secure, and hassle-free version history.</li>
+          <li><strong>Windows Productivity:</strong> Native OS integration designed to streamline workflows and eliminate everyday friction.</li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan. Open-source projects and code released under the <a href="license.html" target="_blank">MIT License</a>.</div>
+        <div>
+          <a href="https://github.com/ReluPercan" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+          <a href="https://pypi.org/user/ReluPercan/" target="_blank" rel="noopener noreferrer">PyPI</a>
+        </div>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

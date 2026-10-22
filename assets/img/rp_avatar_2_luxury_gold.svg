@@ -1,0 +1,31 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='100%' height='100%'>
+  <defs>
+    <linearGradient id='goldGradRP' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#fde047' />
+      <stop offset='30%' stop-color='#eab308' />
+      <stop offset='70%' stop-color='#fef08a' />
+      <stop offset='100%' stop-color='#ca8a04' />
+    </linearGradient>
+    <linearGradient id='goldDarkRP' x1='100%' y1='100%' x2='0%' y2='0%'>
+      <stop offset='0%' stop-color='#854d0e' />
+      <stop offset='100%' stop-color='#d97706' />
+    </linearGradient>
+    <radialGradient id='bgDarkRP' cx='50%' cy='50%' r='50%'>
+      <stop offset='0%' stop-color='#181922' />
+      <stop offset='100%' stop-color='#08090d' />
+    </radialGradient>
+    <filter id='goldShadowRP'>
+      <feDropShadow dx='0' dy='8' stdDeviation='12' flood-color='#000000' flood-opacity='0.7'/>
+      <feDropShadow dx='0' dy='2' stdDeviation='4' flood-color='#ca8a04' flood-opacity='0.3'/>
+    </filter>
+  </defs>
+  <circle cx='256' cy='256' r='246' fill='url(#bgDarkRP)' stroke='url(#goldGradRP)' stroke-width='3' />
+  <circle cx='256' cy='256' r='232' fill='none' stroke='#262837' stroke-width='2' />
+  <circle cx='256' cy='256' r='226' fill='none' stroke='url(#goldGradRP)' stroke-width='1' stroke-dasharray='4 8' opacity='0.6' />
+  <g filter='url(#goldShadowRP)'>
+    <!-- Litera R (Aur închis cu relief) -->
+    <path d='M 116 360 V 152 H 206 C 248 152 258 182 258 210 C 258 238 242 258 206 262 L 262 360 H 218 L 170 268 H 152 V 360 Z M 152 184 V 236 H 202 C 222 236 228 226 228 210 C 228 194 222 184 202 184 Z' fill='url(#goldDarkRP)' />
+    <!-- Litera P (Aur radiant) -->
+    <path d='M 252 360 V 152 H 340 C 386 152 396 184 396 212 C 396 244 376 272 336 272 H 288 V 360 Z M 288 184 V 240 H 334 C 358 240 364 228 364 212 C 364 196 358 184 334 184 Z' fill='url(#goldGradRP)' />
+  </g>
+</svg>

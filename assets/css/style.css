@@ -1,0 +1,717 @@
+/* ==========================================================================
+   ReluPercan - Stiluri Globale (Derivate din sistemul vizual MANUAL.html)
+   ========================================================================== */
+
+:root, [data-theme="dark"] {
+  --bg-page: #0f141c;
+  --bg-surface: #161d28;
+  --bg-card: #1c2534;
+  --bg-subtle: #242f42;
+  --bg-hover: #2d3a52;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --border-light: #283548;
+  --border-strong: #3b4d68;
+  --primary: #38bdf8;
+  --primary-hover: #7dd3fc;
+  --primary-dim: rgba(56, 189, 248, 0.12);
+  --code-bg: #121822;
+  --code-border: #222d3e;
+  --table-stripe: #141b25;
+  --table-header: #1a2332;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.55);
+
+  --alert-note-border: #3b82f6;
+  --alert-note-bg: rgba(59, 130, 246, 0.1);
+  --alert-note-title: #60a5fa;
+
+  --alert-tip-border: #10b981;
+  --alert-tip-bg: rgba(16, 185, 129, 0.1);
+  --alert-tip-title: #34d399;
+
+  --alert-important-border: #a855f7;
+  --alert-important-bg: rgba(168, 85, 247, 0.1);
+  --alert-important-title: #c084fc;
+
+  --alert-warning-border: #f59e0b;
+  --alert-warning-bg: rgba(245, 158, 11, 0.1);
+  --alert-warning-title: #fbbf24;
+
+  --alert-caution-border: #ef4444;
+  --alert-caution-bg: rgba(239, 68, 68, 0.1);
+  --alert-caution-title: #f87171;
+}
+
+[data-theme="light"] {
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #f1f5f9;
+  --bg-subtle: #e2e8f0;
+  --bg-hover: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  --border-light: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --primary: #0284c7;
+  --primary-hover: #0369a1;
+  --primary-dim: rgba(2, 132, 199, 0.08);
+  --code-bg: #f8fafc;
+  --code-border: #e2e8f0;
+  --table-stripe: #f8fafc;
+  --table-header: #edf2f7;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  --alert-note-border: #2563eb;
+  --alert-note-bg: #eff6ff;
+  --alert-note-title: #1d4ed8;
+
+  --alert-tip-border: #059669;
+  --alert-tip-bg: #ecfdf5;
+  --alert-tip-title: #047857;
+
+  --alert-important-border: #9333ea;
+  --alert-important-bg: #faf5ff;
+  --alert-important-title: #7e22ce;
+
+  --alert-warning-border: #d97706;
+  --alert-warning-bg: #fffbeb;
+  --alert-warning-title: #b45309;
+
+  --alert-caution-border: #dc2626;
+  --alert-caution-bg: #fef2f2;
+  --alert-caution-title: #b91c1c;
+}
+
+/* ==========================================================================
+   Elemente de Bază
+   ========================================================================== */
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.68;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ==========================================================================
+   Bara Superioară de Control (Fixed Control Bar)
+   ========================================================================== */
+
+.top-control-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  background: rgba(15, 20, 28, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 10000;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+[data-theme="light"] .top-control-bar {
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.bar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.05em;
+  color: var(--text-main);
+  text-decoration: none;
+  user-select: none;
+}
+
+.bar-brand:hover {
+  text-decoration: none;
+}
+
+.bar-brand-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bar-brand:hover .bar-brand-avatar {
+  transform: scale(1.1) rotate(6deg);
+}
+
+.bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: 12px;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 2px;
+  box-shadow: var(--shadow-sm);
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.84em;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-btn:hover { color: var(--text-main); }
+.lang-btn.active {
+  background-color: var(--primary);
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.theme-btn {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-strong);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15em;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.theme-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--primary);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Container de Pagină & Tipografie
+   ========================================================================== */
+
+.page-container {
+  max-width: 960px;
+  margin: 54px auto 0 auto;
+  padding: 40px 32px 80px 32px;
+  background-color: var(--bg-surface);
+  border-left: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  min-height: calc(100vh - 54px);
+  box-shadow: var(--shadow-md);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+h1 { font-size: 2.1em; border-bottom: 2px solid var(--border-light); padding-bottom: 0.4em; }
+h2 { font-size: 1.5em; border-bottom: 1px solid var(--border-light); padding-bottom: 0.3em; margin-top: 1.8em; }
+h3 { font-size: 1.25em; }
+
+a { color: var(--primary); text-decoration: none; transition: color 0.15s ease; }
+a:hover { color: var(--primary-hover); text-decoration: underline; }
+
+p, ul, ol { margin-top: 0.8em; margin-bottom: 0.8em; }
+li { margin-top: 0.3em; margin-bottom: 0.3em; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-light);
+  margin: 2.2em 0;
+}
+
+/* ==========================================================================
+   Comutare Limbă (.lang-content)
+   ========================================================================== */
+
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+/* ==========================================================================
+   Secțiune Hero (Acasă)
+   ========================================================================== */
+
+.hero-box {
+  padding: 24px 0 10px 0;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 30px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 14px;
+}
+
+.hero-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(234, 179, 8, 0.35);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.hero-avatar:hover {
+  transform: scale(1.08) rotate(3deg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(234, 179, 8, 0.6);
+}
+
+.hero-title-group h1 {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+  font-size: 2.2em;
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  color: var(--text-muted);
+  font-size: 1.05em;
+  margin-top: 4px;
+}
+
+.hero-desc {
+  font-size: 1.08em;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 16px 0;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ==========================================================================
+   Badge-uri și Etichete
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.82em;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.badge-primary {
+  background-color: var(--primary-dim);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.badge-green {
+  background-color: rgba(16, 185, 129, 0.12);
+  border-color: #10b981;
+  color: #34d399;
+}
+
+[data-theme="light"] .badge-green {
+  color: #059669;
+}
+
+/* ==========================================================================
+   Grile de Proiecte (Carduri)
+   ========================================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+  margin: 24px 0 36px 0;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-main);
+}
+
+.card-summary {
+  font-size: 0.95em;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 16px 0;
+  flex-grow: 1;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Butoane
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none !important;
+  user-select: none;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(2, 132, 199, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-main) !important;
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--primary);
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.82em;
+}
+
+/* ==========================================================================
+   Blocuri de Cod & Copy
+   ========================================================================== */
+
+code {
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--primary);
+}
+
+.code-box {
+  position: relative;
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 1.2em 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.code-box pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+  font-size: 0.92em;
+  line-height: 1.45;
+  color: var(--text-main);
+  flex-grow: 1;
+}
+
+.code-box pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+.btn-copy {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.btn-copy:hover {
+  color: var(--text-main);
+  border-color: var(--primary);
+  background-color: var(--bg-hover);
+}
+
+/* ==========================================================================
+   Alerte / Casete de Notificare
+   ========================================================================== */
+
+.note, .tip, .important, .warning, .caution {
+  padding: 14px 18px;
+  margin: 1.6em 0;
+  border-left: 4px solid var(--border-strong);
+  border-radius: 0 8px 8px 0;
+  background-color: var(--bg-card);
+}
+
+.note .title, .tip .title, .important .title, .warning .title, .caution .title {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 1.02em;
+}
+
+.note { border-left-color: var(--alert-note-border); background-color: var(--alert-note-bg); }
+.note .title { color: var(--alert-note-title); }
+
+.tip { border-left-color: var(--alert-tip-border); background-color: var(--alert-tip-bg); }
+.tip .title { color: var(--alert-tip-title); }
+
+.important { border-left-color: var(--alert-important-border); background-color: var(--alert-important-bg); }
+.important .title { color: var(--alert-important-title); }
+
+.warning { border-left-color: var(--alert-warning-border); background-color: var(--alert-warning-bg); }
+.warning .title { color: var(--alert-warning-title); }
+
+.caution { border-left-color: var(--alert-caution-border); background-color: var(--alert-caution-bg); }
+.caution .title { color: var(--alert-caution-title); }
+
+/* ==========================================================================
+   Breadcrumb & Navigație Proiect
+   ========================================================================== */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.project-hero {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.project-hero h1 {
+  margin: 0.3em 0 0.3em 0;
+  border-bottom: none;
+  font-size: 2.2em;
+}
+
+/* ==========================================================================
+   Tabele
+   ========================================================================== */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94em;
+  text-align: left;
+}
+
+th, td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+th:last-child, td:last-child { border-right: none; }
+
+th {
+  background-color: var(--table-header);
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+tr:nth-child(even) td { background-color: var(--table-stripe); }
+tr:hover td { background-color: var(--bg-hover); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.page-footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-dim);
+  font-size: 0.88em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-footer a {
+  color: var(--text-muted);
+}
+
+.page-footer a:hover {
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .page-container {
+    padding: 24px 16px 60px 16px;
+  }
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    display: none;
+  }
+}
+

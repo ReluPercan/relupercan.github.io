@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="dark" data-title-ro="fossil-scm-mcp - Server MCP pentru Fossil SCM | Relu Percan" data-title-en="fossil-scm-mcp - MCP Server for Fossil SCM | Relu Percan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fossil-scm-mcp - Server MCP pentru Fossil SCM | Relu Percan</title>
+  <meta name="description" content="Server Model Context Protocol (MCP) autonom pentru integrarea sistemului de control al versiunilor Fossil SCM cu asistenți AI.">
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/rp_avatar_2_luxury_gold.svg">
+  <link rel="alternate icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('relupercan_theme') || localStorage.getItem('fossilsolo_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Bara Fixă de Control -->
+  <header class="top-control-bar">
+    <a href="../../index.html" class="bar-brand">
+      <img src="../../assets/img/rp_avatar_2_luxury_gold.svg" alt="Logo Relu Percan" class="bar-brand-avatar" width="30" height="30">
+      <span>Relu Percan</span>
+    </a>
+    
+    <div class="bar-actions">
+      <nav class="nav-links">
+        <a href="../../index.html#proiecte" class="nav-link" data-i18n-ro="← Toate Proiectele" data-i18n-en="← All Projects" data-href-ro="../../index.html#proiecte" data-href-en="../../index.html#projects">← Toate Proiectele</a>
+        <a href="https://github.com/ReluPercan/FossilSoloMCP" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub ↗</a>
+      </nav>
+      
+      <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-btn active" id="btn-lang-ro" title="Limba Română">🇷🇴 RO</button>
+        <button type="button" class="lang-btn" id="btn-lang-en" title="English Language">🇬🇧 EN</button>
+      </div>
+      
+      <button id="theme-toggle-btn" class="theme-btn" aria-label="Comută tema" title="Comută tema (Dark / Light)" data-title-ro="Comută tema (Dark / Light)" data-title-en="Toggle theme (Dark / Light)">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Container Principal -->
+  <main class="page-container">
+
+    <!-- ==================== VERSIUNEA ÎN LIMBA ROMÂNĂ ==================== -->
+    <article id="lang-section-ro" class="lang-content active" lang="ro">
+      
+      <a href="../../index.html#proiecte" class="back-link">← Înapoi la lista de proiecte</a>
+
+      <header class="project-hero">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+          <span class="badge badge-primary">Python</span>
+          <span class="badge badge-green">Server MCP</span>
+          <span class="badge badge-green">Unelte AI</span>
+          <span class="badge">Licență MIT</span>
+        </div>
+        <h1>fossil-scm-mcp</h1>
+        <p class="hero-tagline">Server Model Context Protocol (MCP) autonom și headless pentru Fossil SCM</p>
+      </header>
+
+      <section>
+        <h2>📋 Rezumat</h2>
+        <p>
+          <strong>fossil-scm-mcp</strong> (cunoscut și ca <em>FossilSoloMCP</em>) conectează asistenții de programare bazați pe AI 
+          (Claude Desktop, Antigravity, Cursor, etc.) direct cu sistemul distribuit de control al versiunilor 
+          <strong>Fossil SCM</strong>. Serverul funcționează complet decuplat, permițând agenților inteligenți să inspecteze, 
+          să comită, să gestioneze ramuri, să vizualizeze diferențe și să acceseze documentația wiki direct prin conversație.
+        </p>
+
+        <div class="tip">
+          <div class="title">💡 Parametru CWD Dinamic</div>
+          <p>
+            Toate uneltele acceptă un parametru opțional <code>cwd</code>. Aceasta permite unui singur proces de server 
+            să lucreze simultan pe depozite diferite fără reconfigurare sau repornire.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚡ Instalare Rapidă</h2>
+        <p>Instalare prin managerul oficial de pachete Python (pip sau uv):</p>
+        
+        <div class="code-box">
+          <pre><code>pip install fossil-scm-mcp</code></pre>
+          <button type="button" class="btn-copy">Copiază</button>
+        </div>
+
+        <p>Sau rulare directă, fără instalare prealabilă, folosind <code>uvx</code>:</p>
+        <div class="code-box">
+          <pre><code>uvx fossil-scm-mcp</code></pre>
+          <button type="button" class="btn-copy">Copiază</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>🤖 Configurare pentru Asistenți AI</h2>
+        <p>Exemplu de configurare în fișierul JSON al clientului MCP (de ex. <code>claude_desktop_config.json</code>):</p>
+        
+        <div class="code-box">
+          <pre><code>{
+  "mcpServers": {
+    "fossil-scm": {
+      "command": "uvx",
+      "args": ["fossil-scm-mcp"]
+    }
+  }
+}</code></pre>
+          <button type="button" class="btn-copy">Copiază</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>🛠️ Categorii de Unelte Disponibile</h2>
+        <p>Serverul pune la dispoziția asistenților AI o suită modulară de unelte organizate pe arii funcționale:</p>
+        <ul>
+          <li><strong>Gestiune Depozit:</strong> inițializare depozit nou, clonare, deschidere și închidere check-out, configurare setări depozit.</li>
+          <li><strong>Inspecție &amp; Stare:</strong> verificare status curent, diferențe (diff), istoric comiteri (timeline) și inspecție artefacte.</li>
+          <li><strong>Operațiuni pe Fișiere:</strong> adăugare, mutare/redenumire, eliminare, reconciliere automată și comitere (commit/revert).</li>
+          <li><strong>Ramuri, Taguri &amp; Fuziuni:</strong> creare și gestionare ramuri de lucru, etichetare versiuni, fuzionare (merge), actualizare și stash.</li>
+          <li><strong>Mentenanță &amp; Curățare:</strong> scanarea fișierelor netrackuite și curățarea automată a spațiului de lucru.</li>
+          <li><strong>Wiki &amp; Tichetare:</strong> citire, creare și actualizare pentru documentația wiki internă și sistemul nativ de tichete (issues).</li>
+        </ul>
+        <p><em>Pentru lista exhaustivă a comenzilor, parametrii fiecărei unelte și exemple de utilizare, consultați <a href="manual.html">Manualul Tehnic Complet</a>.</em></p>
+      </section>
+
+      <section>
+        <h2>🔗 Resurse & Link-uri Utile</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+          <a href="https://pypi.org/project/fossil-scm-mcp/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Pachetul pe PyPI ↗</a>
+          <a href="https://github.com/ReluPercan/FossilSoloMCP" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Depozitul GitHub ↗</a>
+          <a href="https://github.com/ReluPercan/FossilSoloMCP/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ultima Versiune (GitHub) ↗</a>
+          <a href="manual.html" class="btn btn-secondary">Manualul Tehnic Complet (HTML)</a>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan • fossil-scm-mcp (FossilSoloMCP)</div>
+        <div><a href="../../index.html">← Înapoi la Pagina Principală</a></div>
+      </footer>
+
+    </article>
+
+    <!-- ==================== VERSIUNEA ÎN LIMBA ENGLEZĂ ==================== -->
+    <article id="lang-section-en" class="lang-content" lang="en">
+      
+      <a href="../../index.html#projects" class="back-link">← Back to all projects</a>
+
+      <header class="project-hero">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+          <span class="badge badge-primary">Python</span>
+          <span class="badge badge-green">MCP Server</span>
+          <span class="badge badge-green">AI Tools</span>
+          <span class="badge">MIT License</span>
+        </div>
+        <h1>fossil-scm-mcp</h1>
+        <p class="hero-tagline">Autonomous, headless Model Context Protocol (MCP) server for Fossil SCM</p>
+      </header>
+
+      <section>
+        <h2>📋 Summary</h2>
+        <p>
+          <strong>fossil-scm-mcp</strong> (also known as <em>FossilSoloMCP</em>) seamlessly bridges AI coding assistants 
+          (Claude Desktop, Antigravity, Cursor, etc.) with the <strong>Fossil SCM</strong> distributed version control system. 
+          Operating entirely headless, it empowers AI agents to inspect repositories, commit changes, manage branches, review diffs, 
+          and edit wiki/tickets directly through standard conversational workflows.
+        </p>
+
+        <div class="tip">
+          <div class="title">💡 Dynamic CWD Parameter</div>
+          <p>
+            All tools support an optional <code>cwd</code> argument. This allows a single running server 
+            instance to operate across multiple repositories concurrently without restarting.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⚡ Quick Installation</h2>
+        <p>Install via the standard Python package manager (pip or uv):</p>
+        
+        <div class="code-box">
+          <pre><code>pip install fossil-scm-mcp</code></pre>
+          <button type="button" class="btn-copy">Copy</button>
+        </div>
+
+        <p>Or run on-the-fly without prior installation using <code>uvx</code>:</p>
+        <div class="code-box">
+          <pre><code>uvx fossil-scm-mcp</code></pre>
+          <button type="button" class="btn-copy">Copy</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>🤖 AI Assistant Configuration</h2>
+        <p>Configuration snippet for your MCP client configuration file (e.g. <code>claude_desktop_config.json</code>):</p>
+        
+        <div class="code-box">
+          <pre><code>{
+  "mcpServers": {
+    "fossil-scm": {
+      "command": "uvx",
+      "args": ["fossil-scm-mcp"]
+    }
+  }
+}</code></pre>
+          <button type="button" class="btn-copy">Copy</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>🛠️ Functional Tool Categories</h2>
+        <p>The server equips AI assistants with a modular suite of tools structured across core functional areas:</p>
+        <ul>
+          <li><strong>Repository Management:</strong> repository initialization, cloning, opening/closing check-outs, and database configuration.</li>
+          <li><strong>Status &amp; Inspection:</strong> working copy status, diff generation, timeline history, and historical file inspection.</li>
+          <li><strong>Working Copy Operations:</strong> adding, moving, removing, batch tracking, committing changes, and reverting modifications.</li>
+          <li><strong>Branches, Tags &amp; Merges:</strong> branch management, version tagging, merging, updating workdirs, and stashing.</li>
+          <li><strong>Maintenance &amp; Cleanup:</strong> untracked file identification and safe working tree cleaning.</li>
+          <li><strong>Wiki &amp; Issue Tracking:</strong> full lifecycle management for internal project wiki pages and native bug tracking tickets.</li>
+        </ul>
+        <p><em>For the exhaustive list of specific tool commands, arguments, and practical examples, refer to the <a href="manual.html">Technical Manual</a>.</em></p>
+      </section>
+
+      <section>
+        <h2>🔗 Resources & Links</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+          <a href="https://pypi.org/project/fossil-scm-mcp/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Package on PyPI ↗</a>
+          <a href="https://github.com/ReluPercan/FossilSoloMCP" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Repository ↗</a>
+          <a href="https://github.com/ReluPercan/FossilSoloMCP/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Latest Release ↗</a>
+          <a href="manual.html" class="btn btn-secondary">Full Technical Manual (HTML)</a>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan • fossil-scm-mcp (FossilSoloMCP)</div>
+        <div><a href="../../index.html">← Back to Main Page</a></div>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
+
+
+

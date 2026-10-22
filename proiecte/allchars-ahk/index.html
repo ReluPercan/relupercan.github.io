@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="dark" data-title-ro="AllCharsAHK - Motor Unicode și Diacritice pentru Windows | Relu Percan" data-title-en="AllCharsAHK - Unicode & Diacritics Engine for Windows | Relu Percan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AllCharsAHK - Motor Unicode și Diacritice pentru Windows | Relu Percan</title>
+  <meta name="description" content="Tastează diacritice și caractere Unicode rapid și intuitiv pe Windows cu AutoHotkey v2, fără schimbarea layout-ului de tastatură.">
+    <link rel="icon" type="image/svg+xml" href="../../assets/img/rp_avatar_2_luxury_gold.svg">
+  <link rel="alternate icon" href="../../favicon.ico">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('relupercan_theme') || localStorage.getItem('fossilsolo_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Bara Fixă de Control -->
+  <header class="top-control-bar">
+    <a href="../../index.html" class="bar-brand" title="Relu Percan - Pagina Principală">
+      <img src="../../assets/img/rp_avatar_2_luxury_gold.svg" alt="Relu Percan" class="bar-brand-avatar">
+      <span>Relu Percan</span>
+    </a>
+    
+    <div class="bar-actions">
+      <nav class="nav-links">
+        <a href="../../index.html#proiecte" class="nav-link" data-i18n-ro="← Toate Proiectele" data-i18n-en="← All Projects" data-href-ro="../../index.html#proiecte" data-href-en="../../index.html#projects">← Toate Proiectele</a>
+        <a href="https://github.com/ReluPercan/AllCharsAHK" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub ↗</a>
+      </nav>
+      
+      <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-btn active" id="btn-lang-ro" title="Limba Română">🇷🇴 RO</button>
+        <button type="button" class="lang-btn" id="btn-lang-en" title="English Language">🇬🇧 EN</button>
+      </div>
+      
+      <button id="theme-toggle-btn" class="theme-btn" aria-label="Comută tema" title="Comută tema (Dark / Light)" data-title-ro="Comută tema (Dark / Light)" data-title-en="Toggle theme (Dark / Light)">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Container Principal -->
+  <main class="page-container">
+
+    <!-- ==================== VERSIUNEA ÎN LIMBA ROMÂNĂ ==================== -->
+    <article id="lang-section-ro" class="lang-content active" lang="ro">
+      
+      <a href="../../index.html#proiecte" class="back-link">← Înapoi la lista de proiecte</a>
+
+      <header class="project-hero">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+          <span class="badge badge-green">AutoHotkey v2</span>
+          <span class="badge badge-green">Script</span>
+          <span class="badge badge-primary">Windows 11</span>
+          <span class="badge">Licență MIT</span>
+        </div>
+        <h1>AllCharsAHK</h1>
+        <p class="hero-tagline">Motor universal de tastare caractere Unicode și diacritice pentru Windows</p>
+      </header>
+
+      <section>
+        <h2>📋 Rezumat</h2>
+        <p>
+          <strong>AllCharsAHK</strong> este un utilitar scris nativ în <strong>AutoHotkey v2</strong>, inspirat din conceptul 
+          clasic al tastei <em>Compose</em> și din popularul program istoric <em>AllChars</em>.
+        </p>
+        <p>
+          Pe orice tastatură fizică (de exemplu US English sau tastaturi pentru programare), introducerea caracterelor speciale 
+          precum diacriticele <strong>ă, î, ș, ț, â</strong> sau simbolurile tipografice (<strong>« », —, ©, €, ±</strong>) 
+          necesită în mod tradițional comutarea deranjantă a limbii de sistem (<code>Alt+Shift</code>) sau memorarea codurilor <code>Alt+Numpad</code>.
+        </p>
+        <p>
+          <strong>AllCharsAHK rezolvă elegant această problemă:</strong> apeși scurt o tastă de declanșare (de exemplu <code>Right Ctrl</code> sau <code>Right Shift</code>), 
+          tastezi o secvență mnemotehnică intuitivă de 2 caractere, iar caracterul dorit este inserat instantaneu.
+        </p>
+
+        <div class="important">
+          <div class="title">⚡ Zero Conflicte cu Comenzile Windows</div>
+          <p>
+            Modul Compose se activează <strong>exclusiv la apăsarea și eliberarea scurtă</strong> a tastei de declanșare fără a ține alte taste apăsate simultan. 
+            Comenzile rapide standard din Windows (precum <code>Ctrl+C</code>, <code>Ctrl+V</code>, <code>Ctrl+A</code>) continuă să funcționeze 100% normal în orice aplicație.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⌨️ Tastare &amp; Exemple de Configurare</h2>
+        <p>
+          Tot comportamentul scriptului este dictat de fișierul text <code>AllCharsAHK.cfg</code>. 
+          Mapările au o sintaxă extrem de simplă: <code>[activator] [taste] -&gt; [rezultat]</code>.
+        </p>
+
+        <p>Iată un extras reprezentativ din fișierul canonic de configurare:</p>
+
+        <div class="code-box">
+          <pre><code># Diacritice (Right Ctrl / Right Shift)
+rc a -> ă
+rs a -> Ă
+rc s -> ș
+rs s -> Ș
+
+# Ghilimele standard și linie de dialog
+lc , -> „
+ls ' -> ”
+ls - -> —
+
+# Simboluri uzuale, valutare și matematice
+rc e -> €
+lc 0 -> °
+ls = -> ±
+ls . -> →</code></pre>
+        </div>
+
+        <p>
+          Tasta activator se apasă și se eliberează <strong>scurt</strong>, după care se apasă tasta asociată. 
+          Iată cum se traduc aceste mapări în utilizarea practică:
+        </p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Caracter</th>
+                <th>Ce tastezi fizic</th>
+                <th>Linia din <code>AllCharsAHK.cfg</code></th>
+                <th>Descriere / Utilizare</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ă / Ă</strong></td>
+                <td><code>Right Ctrl</code> (sau <code>Right Shift</code>) urmat de <code>a</code></td>
+                <td><code>rc a -&gt; ă</code> &nbsp;/&nbsp; <code>rs a -&gt; Ă</code></td>
+                <td>Diacritică (a cu căciulă)</td>
+              </tr>
+              <tr>
+                <td><strong>ș / Ș</strong></td>
+                <td><code>Right Ctrl</code> (sau <code>Right Shift</code>) urmat de <code>s</code></td>
+                <td><code>rc s -&gt; ș</code> &nbsp;/&nbsp; <code>rs s -&gt; Ș</code></td>
+                <td>Diacritică (s cu virgulă dedesubt)</td>
+              </tr>
+              <tr>
+                <td><strong>„</strong></td>
+                <td><code>Left Ctrl</code> urmat de <code>,</code> (virgulă)</td>
+                <td><code>lc , -&gt; „</code></td>
+                <td>Ghilimele de deschidere (jos)</td>
+              </tr>
+              <tr>
+                <td><strong>”</strong></td>
+                <td><code>Left Shift</code> urmat de <code>'</code> (apostrof)</td>
+                <td><code>ls ' -&gt; ”</code></td>
+                <td>Ghilimele de închidere (sus)</td>
+              </tr>
+              <tr>
+                <td><strong>—</strong></td>
+                <td><code>Left Shift</code> urmat de <code>-</code> (minus)</td>
+                <td><code>ls - -&gt; —</code></td>
+                <td>Linie de dialog (em dash)</td>
+              </tr>
+              <tr>
+                <td><strong>€</strong></td>
+                <td><code>Right Ctrl</code> urmat de <code>e</code></td>
+                <td><code>rc e -&gt; €</code></td>
+                <td>Simbolul monedei Euro</td>
+              </tr>
+              <tr>
+                <td><strong>°</strong></td>
+                <td><code>Left Ctrl</code> urmat de cifra <code>0</code></td>
+                <td><code>lc 0 -&gt; °</code></td>
+                <td>Simbolul grad (temperatură / unghi)</td>
+              </tr>
+              <tr>
+                <td><strong>±</strong></td>
+                <td><code>Left Shift</code> urmat de <code>=</code></td>
+                <td><code>ls = -&gt; ±</code></td>
+                <td>Simbolul matematic plus-minus</td>
+              </tr>
+              <tr>
+                <td><strong>→</strong></td>
+                <td><code>Left Shift</code> urmat de <code>.</code> (punct)</td>
+                <td><code>ls . -&gt; →</code></td>
+                <td>Săgeată orizontală spre dreapta</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>🏁 Ghid Rapid de Pornire</h2>
+        <p>Descarcă arhiva, dezarhivează și creează (dacă este nevoie) sau editează fișierul de configurare <code>AllCharsAHK.cfg</code> conform propriilor necesități, apoi:</p>
+        <ul>
+          <li><strong>Varianta A (Executabil gata compilat):</strong> Descarcă pachetul direct de la secțiunea GitHub <a href="https://github.com/ReluPercan/AllCharsAHK/releases/latest" target="_blank" rel="noopener noreferrer"><strong>Releases</strong></a> și rulează <code>AllCharsAHK.exe</code> (fără nicio instalare prealabilă).</li>
+          <li><strong>Varianta B (Cod sursă AHK):</strong> Asigură-te că ai instalat <a href="https://www.autohotkey.com/" target="_blank" rel="noopener noreferrer">AutoHotkey v2</a> și rulează cu dublu-click fișierul <code>AllCharsAHK.ahk</code>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🔗 Resurse & Link-uri Utile</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+          <a href="https://github.com/ReluPercan/AllCharsAHK" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Depozitul GitHub ↗</a>
+          <a href="https://github.com/ReluPercan/AllCharsAHK/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Ultima Versiune (GitHub) ↗</a>
+          <a href="manual.html" class="btn btn-secondary">Documentația & Tabelele Complete (HTML)</a>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan • AllCharsAHK</div>
+        <div><a href="../../index.html">← Înapoi la Pagina Principală</a></div>
+      </footer>
+
+    </article>
+
+    <!-- ==================== VERSIUNEA ÎN LIMBA ENGLEZĂ ==================== -->
+    <article id="lang-section-en" class="lang-content" lang="en">
+      
+      <a href="../../index.html#projects" class="back-link">← Back to all projects</a>
+
+      <header class="project-hero">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;">
+          <span class="badge badge-green">AutoHotkey v2</span>
+          <span class="badge badge-green">Script</span>
+          <span class="badge badge-primary">Windows 11</span>
+          <span class="badge">MIT License</span>
+        </div>
+        <h1>AllCharsAHK</h1>
+        <p class="hero-tagline">Universal Unicode and diacritics typing engine for Windows</p>
+      </header>
+
+      <section>
+        <h2>📋 Summary</h2>
+        <p>
+          <strong>AllCharsAHK</strong> is a utility natively written in <strong>AutoHotkey v2</strong>, inspired 
+          by the classic <em>Compose</em> key concept and the renowned legacy tool <em>AllChars</em>.
+        </p>
+        <p>
+          On standard physical keyboards (such as US English programming layouts), entering special characters like diacritics 
+          <strong>ă, î, ș, ț, â</strong> or typographic glyphs (<strong>« », —, ©, €, ±</strong>) typically requires disruptive 
+          system language switching (<code>Alt+Shift</code>) or memorizing <code>Alt+Numpad</code> codes.
+        </p>
+        <p>
+          <strong>AllCharsAHK makes this effortless:</strong> briefly tap and release a trigger key (such as <code>Right Ctrl</code> or <code>Right Shift</code>), 
+          type an intuitive 2-character mnemonic sequence, and the desired glyph appears immediately in your target document.
+        </p>
+
+        <div class="important">
+          <div class="title">⚡ Zero Conflicts with Standard Windows Shortcuts</div>
+          <p>
+            Compose mode engages <strong>exclusively when you briefly tap and release</strong> the trigger key without holding any other keys. 
+            Native system shortcuts (such as <code>Ctrl+C</code>, <code>Ctrl+V</code>, <code>Ctrl+A</code>) remain 100% unaffected and function normally across all applications.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>⌨️ Typing &amp; Configuration Examples</h2>
+        <p>
+          All script behavior is defined in the plain text file <code>AllCharsAHK.cfg</code>. 
+          Bindings follow a straightforward syntax: <code>[trigger] [keys] -&gt; [replacement]</code>.
+        </p>
+
+        <p>Here is a representative snippet from the canonical configuration file:</p>
+
+        <div class="code-box">
+          <pre><code># Diacritics (Right Ctrl / Right Shift)
+rc a -> ă
+rs a -> Ă
+rc s -> ș
+rs s -> Ș
+
+# Standard quotes and em dash
+lc , -> „
+ls ' -> ”
+ls - -> —
+
+# Mathematical & Common Symbols
+rc e -> €
+lc 0 -> °
+ls = -> ±
+ls . -> →</code></pre>
+        </div>
+
+        <p>
+          The trigger key is tapped and released <strong>briefly</strong>, followed by the associated key. 
+          Here is how these bindings translate into day-to-day typing:
+        </p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Glyph</th>
+                <th>Physical Keystrokes</th>
+                <th>Line in <code>AllCharsAHK.cfg</code></th>
+                <th>Description / Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ă / Ă</strong></td>
+                <td><code>Right Ctrl</code> (or <code>Right Shift</code>) followed by <code>a</code></td>
+                <td><code>rc a -&gt; ă</code> &nbsp;/&nbsp; <code>rs a -&gt; Ă</code></td>
+                <td>Diacritic (a with breve)</td>
+              </tr>
+              <tr>
+                <td><strong>ș / Ș</strong></td>
+                <td><code>Right Ctrl</code> (or <code>Right Shift</code>) followed by <code>s</code></td>
+                <td><code>rc s -&gt; ș</code> &nbsp;/&nbsp; <code>rs s -&gt; Ș</code></td>
+                <td>Diacritic (s with comma below)</td>
+              </tr>
+              <tr>
+                <td><strong>„</strong></td>
+                <td><code>Left Ctrl</code> followed by <code>,</code> (comma)</td>
+                <td><code>lc , -&gt; „</code></td>
+                <td>Opening low double quotation mark</td>
+              </tr>
+              <tr>
+                <td><strong>”</strong></td>
+                <td><code>Left Shift</code> followed by <code>'</code> (apostrophe)</td>
+                <td><code>ls ' -&gt; ”</code></td>
+                <td>Closing right double quotation mark</td>
+              </tr>
+              <tr>
+                <td><strong>—</strong></td>
+                <td><code>Left Shift</code> followed by <code>-</code> (minus)</td>
+                <td><code>ls - -&gt; —</code></td>
+                <td>Em dash punctuation mark</td>
+              </tr>
+              <tr>
+                <td><strong>€</strong></td>
+                <td><code>Right Ctrl</code> followed by <code>e</code></td>
+                <td><code>rc e -&gt; €</code></td>
+                <td>Euro currency symbol</td>
+              </tr>
+              <tr>
+                <td><strong>°</strong></td>
+                <td><code>Left Ctrl</code> followed by digit <code>0</code></td>
+                <td><code>lc 0 -&gt; °</code></td>
+                <td>Degree symbol (temperature / angle)</td>
+              </tr>
+              <tr>
+                <td><strong>±</strong></td>
+                <td><code>Left Shift</code> followed by <code>=</code></td>
+                <td><code>ls = -&gt; ±</code></td>
+                <td>Plus-minus mathematical symbol</td>
+              </tr>
+              <tr>
+                <td><strong>→</strong></td>
+                <td><code>Left Shift</code> followed by <code>.</code> (period)</td>
+                <td><code>ls . -&gt; →</code></td>
+                <td>Rightwards pointing arrow</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>🏁 Quick Start Guide</h2>
+        <p>Download the archive, extract it, and create (if needed) or edit the <code>AllCharsAHK.cfg</code> configuration file to suit your needs, then:</p>
+        <ul>
+          <li><strong>Option A (Pre-compiled Executable):</strong> Download the ready-to-run package from GitHub <a href="https://github.com/ReluPercan/AllCharsAHK/releases/latest" target="_blank" rel="noopener noreferrer"><strong>Releases</strong></a> and run <code>AllCharsAHK.exe</code> (no prior installation required).</li>
+          <li><strong>Option B (AHK Source Code):</strong> Make sure you have <a href="https://www.autohotkey.com/" target="_blank" rel="noopener noreferrer">AutoHotkey v2</a> installed and double-click <code>AllCharsAHK.ahk</code>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>🔗 Resources & Links</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+          <a href="https://github.com/ReluPercan/AllCharsAHK" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Repository ↗</a>
+          <a href="https://github.com/ReluPercan/AllCharsAHK/releases/latest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Latest Release (GitHub) ↗</a>
+          <a href="manual.html" class="btn btn-secondary">Full Documentation & Tables (HTML)</a>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan • AllCharsAHK</div>
+        <div><a href="../../index.html">← Back to Main Page</a></div>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>
+
+
+

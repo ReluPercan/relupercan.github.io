@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ro" data-theme="dark" data-title-ro="Licența MIT - Relu Percan" data-title-en="MIT License - Relu Percan">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licența MIT - Relu Percan</title>
+  <meta name="description" content="Licența oficială MIT pentru proiectele open-source dezvoltate de Relu Percan.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/rp_avatar_2_luxury_gold.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('relupercan_theme') || localStorage.getItem('fossilsolo_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Bara Fixă de Control -->
+  <header class="top-control-bar">
+    <a href="index.html" class="bar-brand">
+      <img src="assets/img/rp_avatar_2_luxury_gold.svg" alt="Logo Relu Percan" class="bar-brand-avatar" width="30" height="30">
+      <span>Relu Percan</span>
+    </a>
+    
+    <div class="bar-actions">
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link" data-i18n-ro="← Pagina Principală" data-i18n-en="← Home">← Pagina Principală</a>
+        <a href="https://github.com/ReluPercan" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub ↗</a>
+      </nav>
+      
+      <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-btn active" id="btn-lang-ro" title="Limba Română">🇷🇴 RO</button>
+        <button type="button" class="lang-btn" id="btn-lang-en" title="English Language">🇬🇧 EN</button>
+      </div>
+      
+      <button id="theme-toggle-btn" class="theme-btn" aria-label="Comută tema (Dark / Light)" title="Comută tema (Dark / Light)" data-title-ro="Comută tema (Dark / Light)" data-title-en="Toggle theme (Dark / Light)">
+        <span id="theme-icon">☀️</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Container Principal -->
+  <main class="page-container">
+
+    <!-- ==================== SECȚIUNEA ÎN LIMBA ROMÂNĂ ==================== -->
+    <article id="lang-section-ro" class="lang-content active" lang="ro">
+      
+      <!-- Antet Pagină -->
+      <section class="hero-box">
+        <div class="hero-top">
+          <img src="assets/img/rp_avatar_2_luxury_gold.svg" alt="Avatar Relu Percan" class="hero-avatar" width="64" height="64">
+          <div class="hero-title-group">
+            <h1>Licența MIT</h1>
+            <div class="hero-tagline">Termeni legali de utilizare și distribuție a proiectelor open-source</div>
+          </div>
+        </div>
+        
+        <p class="hero-desc">
+          Toate proiectele open-source dezvoltate de Relu Percan sunt publicate sub termenii permisivi ai Licenței <strong>MIT</strong>.
+          Aceasta vă acordă libertate totală de utilizare, modificare, integrare și distribuție, atât pentru scopuri personale, cât și comerciale.
+        </p>
+
+        <div class="tip">
+          <div class="alert-title">💡 Pe scurt despre Licența MIT:</div>
+          <p>
+            Puteți folosi codul gratuit în orice fel doriți (inclusiv proiecte comerciale sau closed-source), 
+            cu o singură condiție de bază: <strong>păstrarea notificării originale de copyright</strong> și a textului acestei licențe în toate copiile software-ului.
+          </p>
+        </div>
+      </section>
+
+      <!-- Text Oficial Licență -->
+      <section>
+        <h2>📜 Textul Oficial al Licenței (MIT)</h2>
+        
+        <div class="code-box">
+          <button type="button" class="btn-copy" aria-label="Copiază textul licenței" title="Copiază textul licenței">Copiază</button>
+          <pre><code id="license-text-ro">MIT License
+
+Copyright (c) 2026 Relu Percan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</code></pre>
+        </div>
+      </section>
+
+      <!-- Garanție -->
+      <section>
+        <h2>🛡️ Declinarea Responsabilității &amp; Garanție</h2>
+        <div class="caution">
+          <div class="alert-title">⚠️ Fără nicio garanție (AS IS):</div>
+          <p>
+            Software-ul este furnizat „ca atare” (<em>AS IS</em>), fără niciun fel de garanție explicită sau implicită. 
+            Autorul nu își asumă răspunderea pentru niciun fel de daune, pierderi de date sau alte consecințe rezultate din utilizarea acestui software.
+          </p>
+        </div>
+      </section>
+
+      <!-- Subsol -->
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan. Proiecte și cod open-source lansate sub <a href="license.html">Licența MIT</a>.</div>
+        <div>
+          <a href="index.html">← Pagina Principală</a> • 
+          <a href="https://github.com/ReluPercan" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+          <a href="https://pypi.org/user/ReluPercan/" target="_blank" rel="noopener noreferrer">PyPI</a>
+        </div>
+      </footer>
+
+    </article>
+
+    <!-- ==================== SECȚIUNEA ÎN LIMBA ENGLEZĂ ==================== -->
+    <article id="lang-section-en" class="lang-content" lang="en">
+      
+      <!-- Page Header -->
+      <section class="hero-box">
+        <div class="hero-top">
+          <img src="assets/img/rp_avatar_2_luxury_gold.svg" alt="Avatar Relu Percan" class="hero-avatar" width="64" height="64">
+          <div class="hero-title-group">
+            <h1>MIT License</h1>
+            <div class="hero-tagline">Legal terms of use and distribution for open-source projects</div>
+          </div>
+        </div>
+        
+        <p class="hero-desc">
+          All open-source projects created by Relu Percan are released under the terms of the permissive <strong>MIT License</strong>.
+          You are granted full freedom to use, copy, modify, integrate, and distribute the code for both personal and commercial purposes.
+        </p>
+
+        <div class="tip">
+          <div class="alert-title">💡 The MIT License in Brief:</div>
+          <p>
+            You are free to use this software in any way you choose (including commercial or proprietary software), 
+            under one simple condition: <strong>retain the original copyright notice</strong> and this permission notice in all copies or substantial portions.
+          </p>
+        </div>
+      </section>
+
+      <!-- Official License Text -->
+      <section>
+        <h2>📜 Official License Text (MIT)</h2>
+        
+        <div class="code-box">
+          <button type="button" class="btn-copy" aria-label="Copy license text" title="Copy license text">Copy</button>
+          <pre><code id="license-text-en">MIT License
+
+Copyright (c) 2026 Relu Percan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</code></pre>
+        </div>
+      </section>
+
+      <!-- Disclaimer -->
+      <section>
+        <h2>🛡️ Disclaimer &amp; No Warranty</h2>
+        <div class="caution">
+          <div class="alert-title">⚠️ Disclaimer (AS IS):</div>
+          <p>
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="page-footer">
+        <div>© 2026 Relu Percan. Open-source projects released under the <a href="license.html">MIT License</a>.</div>
+        <div>
+          <a href="index.html">← Home</a> • 
+          <a href="https://github.com/ReluPercan" target="_blank" rel="noopener noreferrer">GitHub</a> • 
+          <a href="https://pypi.org/user/ReluPercan/" target="_blank" rel="noopener noreferrer">PyPI</a>
+        </div>
+      </footer>
+
+    </article>
+
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
